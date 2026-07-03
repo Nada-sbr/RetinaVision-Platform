@@ -1,10 +1,5 @@
 #  Ocular AI — Enterprise Retinal Disease Diagnostic & MLOps Platform
 
-[![Build Status](https://github.com/your-username/ocular-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/your-username/ocular-ai/actions/workflows/ci.yml)
-[![Python](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
-[![DVC](https://img.shields.io/badge/data-versioned%20with%20DVC-green.svg)](https://dvc.org/)
-[![MLflow](https://img.shields.io/badge/experiments-tracked%20in%20MLflow-orange.svg)](https://mlflow.org/)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 
 Ocular AI is an enterprise-grade clinical decision support system (CDSS) for retinal disease detection using deep learning (EfficientNet-B3), visual explainability (Grad-CAM), and LLM clinical reporting (Ollama Gemma:2b). The application is fully containerized, versioned, tracked, and monitored using modern MLOps best practices (DVC, MLflow, Evidently AI, PyTest, GitHub Actions).
 
