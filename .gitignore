@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+venv/
+ENV/
+
+# Database files
+*.db
+*.sqlite3
+
+# MLflow local run database
+mlruns/
+mlruns.db
+
+# Large models and raw data directories (managed by DVC)
+/checkpoints/
+/data/
+/preprocessed_images/
+/ODIR-5K/
+/plots/
+/dvc_local_remote/
+
+# IDE files
+.vscode/
+.idea/
+
+# Node modules
+node_modules/
+dist/
+/frontend/dist/

@@ -1,0 +1,18 @@
+stages:
+  train:
+    cmd: python ml_pipeline/train_effnet.py
+    deps:
+      - ml_pipeline/train_effnet.py
+      - ml_pipeline/dataset.py
+      - ml_pipeline/model_effnet.py
+      - ml_pipeline/loss.py
+      - data/train.csv
+      - data/val.csv
+      - data/test.csv
+    params:
+      - configs/training.yaml:
+        - training.epochs
+        - training.batch_size
+        - training.learning_rate
+    outs:
+      - checkpoints/best_model.pth

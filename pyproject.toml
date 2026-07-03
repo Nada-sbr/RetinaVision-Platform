@@ -1,0 +1,26 @@
+[tool.black]
+line-length = 127
+target-version = ['py312']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.ruff]
+line-length = 127
+target-version = "py312"
+select = ["E", "F", "I", "W", "C90"]
+ignore = ["E203", "W503"]
+
+[tool.ruff.mccabe]
+max-complexity = 10

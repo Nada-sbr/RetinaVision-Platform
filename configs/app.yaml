@@ -1,0 +1,33 @@
+app:
+  name: "Ocular AI Platform"
+  version: "1.0.0"
+  description: "Enterprise Ocular Disease Recognition and Clinical Reporting Platform"
+  environment: "production"
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  reload: true
+  cors_origins:
+    - "http://localhost"
+    - "http://127.0.0.1"
+    - "http://localhost:80"
+    - "http://127.0.0.1:80"
+    - "http://localhost:5173"
+    - "http://127.0.0.1:5173"
+
+database:
+  pool_size: 20
+  max_overflow: 10
+  pool_pre_ping: true
+
+explainability:
+  target_layer: "features.8" # For EfficientNet-B3
+  resolution: 300
+
+security:
+  upload_max_size_mb: 10
+  allowed_extensions:
+    - "jpg"
+    - "jpeg"
+    - "png"

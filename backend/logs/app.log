@@ -1,0 +1,181 @@
+2026-07-03 15:50:23,936 - root - INFO - Centralized logging system initialized successfully.
+2026-07-03 15:50:45,414 - root - INFO - Centralized logging system initialized successfully.
+2026-07-03 15:50:45,650 - httpx - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-07-03 15:50:45,687 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python312\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-07-03 15:50:46,028 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 15:50:46,325 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 15:50:46,696 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-03 15:50:46,724 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 401 Unauthorized"
+2026-07-03 15:50:47,215 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 15:50:47,673 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-03 15:50:47,689 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 201 Created"
+2026-07-03 15:50:47,703 - httpx - INFO - HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-07-03 15:50:47,717 - httpx - INFO - HTTP Request: GET http://testserver/ready "HTTP/1.1 503 Service Unavailable"
+2026-07-03 15:50:47,827 - httpx - INFO - HTTP Request: GET http://testserver/metrics "HTTP/1.1 200 OK"
+2026-07-03 15:50:47,841 - httpx - INFO - HTTP Request: GET http://testserver/version "HTTP/1.1 200 OK"
+2026-07-03 15:50:47,857 - httpx - INFO - HTTP Request: GET http://testserver/model-info "HTTP/1.1 200 OK"
+2026-07-03 15:50:49,527 - ml_pipeline.llm_service - ERROR - Could not connect to Ollama. Is it running? Start Ollama and verify it is running on http://localhost:11434.
+2026-07-03 15:50:49,535 - ml_pipeline.llm_service - ERROR - Ollama request timed out. Inference took too long.
+2026-07-03 15:58:43,150 - root - INFO - Centralized logging system initialized successfully.
+2026-07-03 15:58:43,371 - httpx - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-07-03 15:58:43,435 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python312\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-07-03 15:58:43,909 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 15:58:44,290 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 15:58:44,638 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-03 15:58:44,650 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 401 Unauthorized"
+2026-07-03 15:58:44,966 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 15:58:45,313 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-03 15:58:45,323 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 201 Created"
+2026-07-03 15:58:45,335 - httpx - INFO - HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-07-03 15:58:45,345 - httpx - INFO - HTTP Request: GET http://testserver/ready "HTTP/1.1 503 Service Unavailable"
+2026-07-03 15:58:45,352 - httpx - INFO - HTTP Request: GET http://testserver/ready "HTTP/1.1 200 OK"
+2026-07-03 15:58:45,370 - httpx - INFO - HTTP Request: GET http://testserver/metrics "HTTP/1.1 200 OK"
+2026-07-03 15:58:45,380 - httpx - INFO - HTTP Request: GET http://testserver/version "HTTP/1.1 200 OK"
+2026-07-03 15:58:45,390 - httpx - INFO - HTTP Request: GET http://testserver/model-info "HTTP/1.1 200 OK"
+2026-07-03 15:58:47,462 - ml_pipeline.llm_service - ERROR - Could not connect to Ollama. Is it running? Start Ollama and verify it is running on http://localhost:11434.
+2026-07-03 15:58:47,468 - ml_pipeline.llm_service - ERROR - Ollama request timed out. Inference took too long.
+2026-07-03 16:00:13,654 - root - INFO - Centralized logging system initialized successfully.
+2026-07-03 16:00:13,761 - httpx - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-07-03 16:00:13,806 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python312\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-07-03 16:00:14,146 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:00:14,473 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:00:14,844 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-03 16:00:14,857 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 401 Unauthorized"
+2026-07-03 16:00:15,213 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:00:15,520 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-03 16:00:15,531 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 201 Created"
+2026-07-03 16:00:15,542 - httpx - INFO - HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-07-03 16:00:15,552 - httpx - INFO - HTTP Request: GET http://testserver/ready "HTTP/1.1 503 Service Unavailable"
+2026-07-03 16:00:15,560 - httpx - INFO - HTTP Request: GET http://testserver/ready "HTTP/1.1 200 OK"
+2026-07-03 16:00:15,579 - httpx - INFO - HTTP Request: GET http://testserver/metrics "HTTP/1.1 200 OK"
+2026-07-03 16:00:15,589 - httpx - INFO - HTTP Request: GET http://testserver/version "HTTP/1.1 200 OK"
+2026-07-03 16:00:15,600 - httpx - INFO - HTTP Request: GET http://testserver/model-info "HTTP/1.1 200 OK"
+2026-07-03 16:00:21,260 - ml_pipeline.llm_service - ERROR - Could not connect to Ollama. Is it running? Start Ollama and verify it is running on http://localhost:11434.
+2026-07-03 16:00:21,269 - ml_pipeline.llm_service - ERROR - Ollama request timed out. Inference took too long.
+2026-07-03 16:08:04,093 - root - INFO - Centralized logging system initialized successfully.
+2026-07-03 16:08:04,563 - httpx - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-07-03 16:08:04,603 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python312\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-07-03 16:08:04,954 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:08:05,300 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:08:05,616 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-03 16:08:05,627 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 401 Unauthorized"
+2026-07-03 16:08:05,925 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:08:06,224 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-03 16:08:06,235 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 201 Created"
+2026-07-03 16:08:06,245 - httpx - INFO - HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-07-03 16:08:06,255 - httpx - INFO - HTTP Request: GET http://testserver/ready "HTTP/1.1 503 Service Unavailable"
+2026-07-03 16:08:06,263 - httpx - INFO - HTTP Request: GET http://testserver/ready "HTTP/1.1 200 OK"
+2026-07-03 16:08:06,281 - httpx - INFO - HTTP Request: GET http://testserver/metrics "HTTP/1.1 200 OK"
+2026-07-03 16:08:06,292 - httpx - INFO - HTTP Request: GET http://testserver/version "HTTP/1.1 200 OK"
+2026-07-03 16:08:06,300 - httpx - INFO - HTTP Request: GET http://testserver/model-info "HTTP/1.1 200 OK"
+2026-07-03 16:09:50,414 - root - INFO - Centralized logging system initialized successfully.
+2026-07-03 16:09:50,668 - httpx - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-07-03 16:09:50,706 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python312\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-07-03 16:09:51,054 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:09:51,432 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:09:51,761 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-03 16:09:51,772 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 401 Unauthorized"
+2026-07-03 16:09:52,084 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:09:52,384 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-03 16:09:52,395 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 201 Created"
+2026-07-03 16:09:52,405 - httpx - INFO - HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-07-03 16:09:52,415 - httpx - INFO - HTTP Request: GET http://testserver/ready "HTTP/1.1 503 Service Unavailable"
+2026-07-03 16:09:52,423 - httpx - INFO - HTTP Request: GET http://testserver/ready "HTTP/1.1 200 OK"
+2026-07-03 16:09:52,441 - httpx - INFO - HTTP Request: GET http://testserver/metrics "HTTP/1.1 200 OK"
+2026-07-03 16:09:52,450 - httpx - INFO - HTTP Request: GET http://testserver/version "HTTP/1.1 200 OK"
+2026-07-03 16:09:52,459 - httpx - INFO - HTTP Request: GET http://testserver/model-info "HTTP/1.1 200 OK"
+2026-07-03 16:15:58,790 - root - INFO - Centralized logging system initialized successfully.
+2026-07-03 16:15:59,037 - httpx - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-07-03 16:15:59,076 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python312\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-07-03 16:15:59,479 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:15:59,816 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:16:00,326 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-03 16:16:00,349 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 401 Unauthorized"
+2026-07-03 16:16:00,774 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:16:01,191 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-03 16:16:01,212 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 201 Created"
+2026-07-03 16:16:01,228 - httpx - INFO - HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-07-03 16:16:01,247 - httpx - INFO - HTTP Request: GET http://testserver/ready "HTTP/1.1 503 Service Unavailable"
+2026-07-03 16:16:01,265 - httpx - INFO - HTTP Request: GET http://testserver/ready "HTTP/1.1 200 OK"
+2026-07-03 16:16:01,297 - httpx - INFO - HTTP Request: GET http://testserver/metrics "HTTP/1.1 200 OK"
+2026-07-03 16:16:01,309 - httpx - INFO - HTTP Request: GET http://testserver/version "HTTP/1.1 200 OK"
+2026-07-03 16:16:01,323 - httpx - INFO - HTTP Request: GET http://testserver/model-info "HTTP/1.1 200 OK"
+2026-07-03 16:16:08,983 - httpx - INFO - HTTP Request: GET http://testserver/monitoring/drift-report "HTTP/1.1 500 Internal Server Error"
+2026-07-03 16:17:56,353 - root - INFO - Centralized logging system initialized successfully.
+2026-07-03 16:17:56,670 - httpx - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-07-03 16:17:56,717 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python312\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-07-03 16:17:57,098 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:17:57,436 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:17:57,811 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-03 16:17:57,824 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 401 Unauthorized"
+2026-07-03 16:17:58,191 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:17:58,588 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-03 16:17:58,602 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 201 Created"
+2026-07-03 16:17:58,615 - httpx - INFO - HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-07-03 16:17:58,628 - httpx - INFO - HTTP Request: GET http://testserver/ready "HTTP/1.1 503 Service Unavailable"
+2026-07-03 16:17:58,637 - httpx - INFO - HTTP Request: GET http://testserver/ready "HTTP/1.1 200 OK"
+2026-07-03 16:17:58,663 - httpx - INFO - HTTP Request: GET http://testserver/metrics "HTTP/1.1 200 OK"
+2026-07-03 16:17:58,674 - httpx - INFO - HTTP Request: GET http://testserver/version "HTTP/1.1 200 OK"
+2026-07-03 16:17:58,685 - httpx - INFO - HTTP Request: GET http://testserver/model-info "HTTP/1.1 200 OK"
+2026-07-03 16:18:05,966 - httpx - INFO - HTTP Request: GET http://testserver/monitoring/drift-report "HTTP/1.1 200 OK"
+2026-07-03 16:18:07,033 - ml_pipeline.llm_service - ERROR - Could not connect to Ollama. Is it running? Start Ollama and verify it is running on http://localhost:11434.
+2026-07-03 16:18:07,039 - ml_pipeline.llm_service - ERROR - Ollama request timed out. Inference took too long.
+2026-07-03 16:22:30,737 - root - INFO - Centralized logging system initialized successfully.
+2026-07-03 16:22:30,923 - httpx - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-07-03 16:22:30,951 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python312\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-07-03 16:22:31,229 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:22:31,501 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:22:31,771 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-03 16:22:31,782 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 401 Unauthorized"
+2026-07-03 16:22:32,060 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-03 16:22:32,341 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-03 16:22:32,352 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 201 Created"
+2026-07-03 16:22:32,361 - httpx - INFO - HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-07-03 16:22:32,371 - httpx - INFO - HTTP Request: GET http://testserver/ready "HTTP/1.1 503 Service Unavailable"
+2026-07-03 16:22:32,378 - httpx - INFO - HTTP Request: GET http://testserver/ready "HTTP/1.1 200 OK"
+2026-07-03 16:22:32,395 - httpx - INFO - HTTP Request: GET http://testserver/metrics "HTTP/1.1 200 OK"
+2026-07-03 16:22:32,404 - httpx - INFO - HTTP Request: GET http://testserver/version "HTTP/1.1 200 OK"
+2026-07-03 16:22:32,414 - httpx - INFO - HTTP Request: GET http://testserver/model-info "HTTP/1.1 200 OK"
+2026-07-03 16:22:38,643 - httpx - INFO - HTTP Request: GET http://testserver/monitoring/drift-report "HTTP/1.1 200 OK"
+2026-07-03 16:22:39,768 - ml_pipeline.llm_service - ERROR - Could not connect to Ollama. Is it running? Start Ollama and verify it is running on http://localhost:11434.
+2026-07-03 16:22:39,777 - ml_pipeline.llm_service - ERROR - Ollama request timed out. Inference took too long.

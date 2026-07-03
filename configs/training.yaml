@@ -1,0 +1,25 @@
+model:
+  name: "EfficientNet-B3"
+  num_classes: 8
+  pretrained: true
+  resolution: 300
+
+training:
+  epochs: 5
+  batch_size: 8
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  loss: "FocalLoss"
+  focal_gamma: 2.0
+  optimizer: "Adam"
+  lr_scheduler: "StepLR"
+  lr_step_size: 3
+  lr_gamma: 0.1
+  device: "cuda" # fallback to cpu is automatic in code
+
+data:
+  train_csv: "data/train.csv"
+  val_csv: "data/val.csv"
+  test_csv: "data/test.csv"
+  img_dir: "preprocessed_images"
+  num_workers: 0
