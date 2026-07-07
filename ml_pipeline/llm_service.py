@@ -5,15 +5,17 @@ from typing import Optional
 
 logger = logging.getLogger(__name__)
 
+
 class LLMService:
     """
     Service responsible for interacting with the local Ollama instance
     to generate clinical reports using the Mistral LLM.
     """
+
     def __init__(self, ollama_url: str = "http://host.docker.internal:11434", model_name: str = "gemma:2b"):
         self.url = f"{ollama_url.rstrip('/')}/api/generate"
         self.model_name = model_name
-        
+
     def generate_report(self, prompt: str) -> str:
         """
         Sends the prompt to the local Ollama instance and returns the generated report.
@@ -23,29 +25,31 @@ class LLMService:
             "model": self.model_name,
             "prompt": prompt,
             "stream": False,
-            "options": {
-                "temperature": 0.3  # Low temperature for medical report deterministic structure
-            }
+            "options": {"temperature": 0.3},  # Low temperature for medical report deterministic structure
         }
-        
+
         try:
             # Set a CPU-friendly timeout (180 seconds) to allow local CPU LLM inference times
             response = requests.post(self.url, json=payload, timeout=180)
-            
+
             if response.status_code == 200:
                 data = response.json()
                 return data.get("response", "").strip()
             elif response.status_code == 404:
-                error_msg = f"Model '{self.model_name}' not found. Please run 'ollama pull {self.model_name}' in your terminal."
+                error_msg = (
+                    f"Model '{self.model_name}' not found. Please run 'ollama pull {self.model_name}' in your terminal."
+                )
                 logger.error(error_msg)
                 return self._generate_fallback_report(prompt, error_msg)
             else:
                 error_msg = f"Ollama returned HTTP error code {response.status_code}: {response.text}"
                 logger.error(error_msg)
                 return self._generate_fallback_report(prompt, error_msg)
-                
+
         except requests.exceptions.ConnectionError:
-            error_msg = "Could not connect to Ollama. Is it running? Start Ollama and verify it is running on http://localhost:11434."
+            error_msg = (
+                "Could not connect to Ollama. Is it running? Start Ollama and verify it is running on http://localhost:11434."
+            )
             logger.error(error_msg)
             return self._generate_fallback_report(prompt, error_msg)
         except requests.exceptions.Timeout:
@@ -56,7 +60,7 @@ class LLMService:
             error_msg = f"An unexpected error occurred during LLM generation: {str(e)}"
             logger.error(error_msg)
             return self._generate_fallback_report(prompt, error_msg)
-            
+
     def _generate_fallback_report(self, prompt: str, error_detail: str) -> str:
         """
         Generates a structured mock fallback report in case the LLM is offline or model is missing.
@@ -72,7 +76,7 @@ class LLMService:
                 json_end = prompt.rfind("}") + 1
                 json_str = prompt[json_start:json_end]
                 payload = json.loads(json_str)
-                
+
                 age = payload["patient_info"]["age"]
                 sex = payload["patient_info"]["sex"]
                 top_1_name = payload["top_1_prediction"]["label_name"]
@@ -87,7 +91,7 @@ class LLMService:
             top_1_name = "Cataract"
             top_1_conf = 95.0
             attention_region = "Central Macular Region"
-            
+
         fallback_report = f"""# RAPPORT CLINIQUE (GÉNÉRATION AUTOMATISÉE - MODE DE SECOURS)
 
 **Note : L'API Ollama locale ({self.model_name}) n'est pas joignable ou n'est pas configurée ({error_detail}). Ce rapport a été généré automatiquement par le serveur backend à titre de secours.**

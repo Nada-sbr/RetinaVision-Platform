@@ -20,7 +20,7 @@ from app.core import config
 app = FastAPI(
     title=config.PROJECT_NAME,
     description="Backend API for Fundus Image Disease Classification, Grad-CAM overlays, and LLM clinical reporting.",
-    version=config.VERSION
+    version=config.VERSION,
 )
 
 # Configure CORS middleware
@@ -42,14 +42,13 @@ app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 app.include_router(router)
 app.include_router(health_router)
 
+
 @app.get("/")
 def read_root():
-    return {
-        "status": "online",
-        "api_docs_url": "/docs",
-        "health_check": "passed"
-    }
+    return {"status": "online", "api_docs_url": "/docs", "health_check": "passed"}
+
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

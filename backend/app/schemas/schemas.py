@@ -3,6 +3,7 @@ from datetime import datetime, date
 from typing import List, Optional
 import uuid
 
+
 # ----------------------------------------------------
 # Token & Auth Schemas
 # ----------------------------------------------------
@@ -10,8 +11,10 @@ class Token(BaseModel):
     access_token: str
     token_type: str
 
+
 class TokenData(BaseModel):
     email: Optional[str] = None
+
 
 # ----------------------------------------------------
 # User Schemas
@@ -21,6 +24,7 @@ class UserCreate(BaseModel):
     password: str = Field(..., min_length=6)
     full_name: str
     role: Optional[str] = "ophthalmologist"
+
 
 class UserOut(BaseModel):
     id: int
@@ -32,6 +36,7 @@ class UserOut(BaseModel):
     class Config:
         from_attributes = True
 
+
 # ----------------------------------------------------
 # Patient Schemas
 # ----------------------------------------------------
@@ -40,6 +45,7 @@ class PatientCreate(BaseModel):
     last_name: str
     birth_date: date
     gender: str = Field(..., description="Male, Female, or Other")
+
 
 class PatientOut(BaseModel):
     id: int
@@ -51,6 +57,7 @@ class PatientOut(BaseModel):
 
     class Config:
         from_attributes = True
+
 
 # ----------------------------------------------------
 # Prediction Schemas
@@ -71,6 +78,7 @@ class PredictionOut(BaseModel):
     class Config:
         from_attributes = True
 
+
 # ----------------------------------------------------
 # Report Schemas
 # ----------------------------------------------------
@@ -86,6 +94,7 @@ class ReportOut(BaseModel):
     class Config:
         from_attributes = True
 
+
 # ----------------------------------------------------
 # Image & History Schemas
 # ----------------------------------------------------
@@ -98,13 +107,14 @@ class ImageOut(BaseModel):
     gradcam_filepath: Optional[str] = None
     uploaded_by: int
     uploaded_at: datetime
-    
+
     # Nested relations if present
     prediction: Optional[PredictionOut] = None
     report: Optional[ReportOut] = None
 
     class Config:
         from_attributes = True
+
 
 # Combined History Response
 class HistoryItem(BaseModel):

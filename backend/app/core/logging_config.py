@@ -3,6 +3,7 @@ import os
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
+
 def setup_logging():
     """
     Sets up a centralized logging system.
@@ -32,9 +33,7 @@ def setup_logging():
     root_logger.addHandler(console_handler)
 
     # Rotating File Handler (Max 10MB per file, keeping last 5 backups)
-    file_handler = RotatingFileHandler(
-        log_file, maxBytes=10 * 1024 * 1024, backupCount=5, encoding="utf-8"
-    )
+    file_handler = RotatingFileHandler(log_file, maxBytes=10 * 1024 * 1024, backupCount=5, encoding="utf-8")
     file_handler.setFormatter(formatter)
     file_handler.setLevel(logging.INFO)
     root_logger.addHandler(file_handler)

@@ -5,21 +5,25 @@ from typing import Dict, Any, Optional
 
 logger = logging.getLogger(__name__)
 
+
 class MLflowTracker:
     """
     Wrapper class around MLflow for Ocular AI project experiment tracking
     and model registry integrations.
     """
+
     def __init__(self, tracking_uri: Optional[str] = None, experiment_name: str = "Ocular_Disease_Classification"):
         # Set tracking URI. In Docker, it resolves to http://mlflow:5000
         self.tracking_uri = tracking_uri or os.getenv("MLFLOW_TRACKING_URI", "http://localhost:5000")
         mlflow.set_tracking_uri(self.tracking_uri)
-        
+
         self.experiment_name = experiment_name
         try:
             mlflow.set_experiment(self.experiment_name)
         except Exception as e:
-            logger.warning(f"Could not connect to MLflow server at {self.tracking_uri}: {str(e)}. Running with local tracking.")
+            logger.warning(
+                f"Could not connect to MLflow server at {self.tracking_uri}: {str(e)}. Running with local tracking."
+            )
             # Fallback to local directory tracking
             mlflow.set_tracking_uri("file:./mlruns")
             mlflow.set_experiment(self.experiment_name)
@@ -50,7 +54,5 @@ class MLflowTracker:
     def log_model(self, pytorch_model, artifact_path: str = "model", registered_model_name: Optional[str] = None):
         """Logs a PyTorch model and registers it if name is provided."""
         mlflow.pytorch.log_model(
-            pytorch_model=pytorch_model,
-            artifact_path=artifact_path,
-            registered_model_name=registered_model_name
+            pytorch_model=pytorch_model, artifact_path=artifact_path, registered_model_name=registered_model_name
         )

@@ -2,24 +2,26 @@ import numpy as np
 from typing import Dict, Any, List
 import json
 
+
 class ClinicalReportGenerator:
     """
     Generates structured JSON payloads from prediction metadata and Grad-CAM heatmaps,
     and builds optimized prompts for the clinical report LLM.
     """
+
     def __init__(self, labels_mapping: Dict[str, str] = None):
         # Human-readable mapping of ODIR labels
         self.labels_mapping = labels_mapping or {
-            'N': 'Normal Fundus',
-            'D': 'Diabetic Retinopathy',
-            'G': 'Glaucoma',
-            'C': 'Cataract',
-            'A': 'Age-related Macular Degeneration (AMD)',
-            'H': 'Hypertensive Retinopathy',
-            'M': 'Pathological Myopia',
-            'O': 'Other Disease / Abnormality'
+            "N": "Normal Fundus",
+            "D": "Diabetic Retinopathy",
+            "G": "Glaucoma",
+            "C": "Cataract",
+            "A": "Age-related Macular Degeneration (AMD)",
+            "H": "Hypertensive Retinopathy",
+            "M": "Pathological Myopia",
+            "O": "Other Disease / Abnormality",
         }
-        
+
     def localize_activation_region(self, heatmap: np.ndarray, threshold: float = 0.5) -> str:
         """
         Analyzes the Grad-CAM heatmap to localize the region of highest model attention
@@ -27,17 +29,17 @@ class ClinicalReportGenerator:
         """
         # Threshold the heatmap to keep only high-intensity regions
         binary_map = (heatmap >= threshold).astype(np.uint8)
-        
+
         # Compute coordinates of the active pixels
         y_indices, x_indices = np.where(binary_map > 0)
-        
+
         if len(x_indices) == 0 or len(y_indices) == 0:
             return "Diffuse / Unlocalized"
-            
+
         # Calculate the centroid (center of mass) of the active region
         mean_y = np.mean(y_indices) / heatmap.shape[0]  # normalized [0, 1]
         mean_x = np.mean(x_indices) / heatmap.shape[1]  # normalized [0, 1]
-        
+
         # Map to 3x3 grid
         # Y-axis divisions
         if mean_y < 0.33:
@@ -46,7 +48,7 @@ class ClinicalReportGenerator:
             y_pos = "Inferior"
         else:
             y_pos = "Central"
-            
+
         # X-axis divisions
         if mean_x < 0.33:
             x_pos = "Left / Temporal"
@@ -54,7 +56,7 @@ class ClinicalReportGenerator:
             x_pos = "Right / Nasal"
         else:
             x_pos = "Center"
-            
+
         # Combine descriptions
         if y_pos == "Central" and x_pos == "Center":
             return "Central Macular Region"
@@ -64,16 +66,14 @@ class ClinicalReportGenerator:
             return f"{y_pos}-Vertical Region"
         else:
             return f"{y_pos}-{x_pos} Quadrent"
-            
-    def generate_json_payload(self, 
-                              patient_age: int, 
-                              patient_sex: str, 
-                              predictions: Dict[str, float], 
-                              heatmap: np.ndarray) -> Dict[str, Any]:
+
+    def generate_json_payload(
+        self, patient_age: int, patient_sex: str, predictions: Dict[str, float], heatmap: np.ndarray
+    ) -> Dict[str, Any]:
         """
         Compiles patient details, prediction scores, and spatial heatmap localization
         into a structured dictionary (JSON payload).
-        
+
         Args:
             patient_age (int): Patient age.
             patient_sex (str): Patient sex.
@@ -82,41 +82,40 @@ class ClinicalReportGenerator:
         """
         # Sort predictions by confidence
         sorted_preds = sorted(predictions.items(), key=lambda item: item[1], reverse=True)
-        
+
         top_1_label, top_1_prob = sorted_preds[0]
-        
+
         # Get top 3 predictions
         top_3 = []
         for label, prob in sorted_preds[:3]:
-            top_3.append({
-                "label_code": label,
-                "label_name": self.labels_mapping.get(label, "Unknown"),
-                "confidence": round(float(prob) * 100, 2)  # Percentage representation
-            })
-            
+            top_3.append(
+                {
+                    "label_code": label,
+                    "label_name": self.labels_mapping.get(label, "Unknown"),
+                    "confidence": round(float(prob) * 100, 2),  # Percentage representation
+                }
+            )
+
         # Localize Grad-CAM region
         attention_region = self.localize_activation_region(heatmap)
-        
+
         payload = {
-            "patient_info": {
-                "age": patient_age,
-                "sex": patient_sex
-            },
+            "patient_info": {"age": patient_age, "sex": patient_sex},
             "top_1_prediction": {
                 "label_code": top_1_label,
                 "label_name": self.labels_mapping.get(top_1_label, "Unknown"),
-                "confidence": round(float(top_1_prob) * 100, 2)
+                "confidence": round(float(top_1_prob) * 100, 2),
             },
             "top_3_predictions": top_3,
             "explainability": {
                 "method": "Grad-CAM",
                 "target_layer": "backbone.layer4",
-                "attention_region_localized": attention_region
-            }
+                "attention_region_localized": attention_region,
+            },
         }
-        
+
         return payload
-        
+
     def build_llm_prompt(self, payload: Dict[str, Any]) -> str:
         """
         Constructs the system prompt and instructions for the Mistral LLM
@@ -126,7 +125,7 @@ class ClinicalReportGenerator:
         top_1 = payload["top_1_prediction"]
         top_3 = payload["top_3_predictions"]
         xai = payload["explainability"]
-        
+
         # Build prompt using markdown structure
         prompt = f"""[SYSTEM INSTRUCTIONS]
 You are a highly experienced Senior Ophthalmologist and Clinical AI Decision Support Assistant.

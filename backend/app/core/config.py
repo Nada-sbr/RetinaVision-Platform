@@ -21,6 +21,7 @@ if CONFIG_PATH.exists():
 else:
     _yaml_config = {}
 
+
 # Config helper functions
 def get_yaml_val(keys: List[str], default=None):
     curr = _yaml_config
@@ -30,6 +31,7 @@ def get_yaml_val(keys: List[str], default=None):
         else:
             return default
     return curr
+
 
 # Expose Config Parameters
 ENVIRONMENT = os.getenv("ENVIRONMENT", get_yaml_val(["app", "environment"], "production"))
