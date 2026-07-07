@@ -1,4 +1,3 @@
-
 # Database URL configuration
 # For local development, default to SQLite if PostgreSQL is not specified.
 # This makes it easy to run tests and develop without PostgreSQL installed,
