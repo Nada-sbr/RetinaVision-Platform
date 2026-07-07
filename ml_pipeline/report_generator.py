@@ -1,6 +1,7 @@
-import numpy as np
-from typing import Dict, Any, List
 import json
+from typing import Any, Dict
+
+import numpy as np
 
 
 class ClinicalReportGenerator:
@@ -121,9 +122,9 @@ class ClinicalReportGenerator:
         Constructs the system prompt and instructions for the Mistral LLM
         based on the structured JSON payload.
         """
-        patient = payload["patient_info"]
+        payload["patient_info"]
         top_1 = payload["top_1_prediction"]
-        top_3 = payload["top_3_predictions"]
+        payload["top_3_predictions"]
         xai = payload["explainability"]
 
         # Build prompt using markdown structure
@@ -145,16 +146,16 @@ Please construct the clinical report following this exact section structure:
 
 1. **Résumé Clinique (Clinical Summary)**:
    - Present the patient (age, sex) and the context of the fundus exam.
-   
+
 2. **Explication de la Prédiction (Prediction Explanation)**:
    - Detail the primary prediction (Top-1) and confidence score. Mention the other likely differentials in the Top-3.
-   
+
 3. **Interprétation de l'Imagerie (Image Interpretation & XAI)**:
    - Interpret the Grad-CAM explanation. Discuss the significance of the model's focus on the '{xai["attention_region_localized"]}' region of the fundus. Connect this spatial focus to the pathophysiology of '{top_1["label_name"]}'.
-   
+
 4. **Examens Complémentaires Recommandés (Recommended Examinations)**:
    - Suggest relevant clinical follow-up tests (e.g., OCT, Optical Coherence Tomography, angiography, visual field, intraocular pressure measurement) depending on the predicted pathology.
-   
+
 5. **Limites de l'IA & Responsabilité Médicale (AI Limitations & Legal Warning)**:
    - Provide a clear, bold disclaimer that the AI prediction is not a final diagnosis. The physician's clinical verification is mandatory.
 

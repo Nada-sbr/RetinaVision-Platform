@@ -1,21 +1,18 @@
 import os
-import ast
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import torch
-import torch.nn as nn
-import torch.optim as optim
-from torch.utils.data import DataLoader
-from sklearn.metrics import precision_recall_fscore_support, roc_auc_score, multilabel_confusion_matrix, accuracy_score
-import matplotlib.pyplot as plt
 import seaborn as sns
-
-from dataset import ODIRDataset
-from transforms import get_train_transforms, get_val_transforms
-from model_effnet import ODIREfficientNetB3
-from loss import MultiLabelFocalLoss
-
+import torch
+import torch.optim as optim
 import yaml
+from dataset import ODIRDataset
+from loss import MultiLabelFocalLoss
+from model_effnet import ODIREfficientNetB3
+from sklearn.metrics import accuracy_score, multilabel_confusion_matrix, precision_recall_fscore_support, roc_auc_score
+from torch.utils.data import DataLoader
+from transforms import get_train_transforms, get_val_transforms
 
 # ----------------------------------------------------
 # Configuration & Hyperparameters (Loaded from YAML)
@@ -60,9 +57,9 @@ def compute_pos_weights(train_csv_path: str) -> torch.Tensor:
         weight = neg_count / max(pos_count, 1)
         pos_weights.append(weight)
 
-    print(f"Calculated class weights (pos_weight) to combat imbalance:")
-    for l, w in zip(LABELS, pos_weights):
-        print(f"  Class {l}: {w:.2f}")
+    print("Calculated class weights (pos_weight) to combat imbalance:")
+    for label, w in zip(LABELS, pos_weights):
+        print(f"  Class {label}: {w:.2f}")
 
     return torch.tensor(pos_weights, dtype=torch.float32).to(DEVICE)
 

@@ -1,18 +1,19 @@
-from fastapi import APIRouter, Depends, HTTPException, status, UploadFile, File, Form
-from fastapi.security import OAuth2PasswordRequestForm
-from sqlalchemy.orm import Session
+import logging
 import os
-import sys
-import uuid
 import shutil
-from datetime import datetime, date
+import sys
+import time
+import uuid
+from datetime import date
 from typing import List
-from PIL import Image
+
+import cv2
 import numpy as np
 import torch
-import cv2
-import logging
-import time
+from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile, status
+from fastapi.security import OAuth2PasswordRequestForm
+from PIL import Image
+from sqlalchemy.orm import Session
 
 logger = logging.getLogger(__name__)
 
@@ -20,16 +21,17 @@ logger = logging.getLogger(__name__)
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")))
 
 from app.core.database import get_db
-from app.core.security import get_password_hash, verify_password, create_access_token, get_current_user
+from app.core.security import create_access_token, get_current_user, get_password_hash, verify_password
 from app.models import models
 from app.schemas import schemas
 
+from ml_pipeline.gradcam import GradCAM
+from ml_pipeline.llm_service import LLMService
+
 # Import ML pipeline modules
 from ml_pipeline.model_effnet import ODIREfficientNetB3
-from ml_pipeline.gradcam import GradCAM
-from ml_pipeline.transforms import get_val_transforms
 from ml_pipeline.report_generator import ClinicalReportGenerator
-from ml_pipeline.llm_service import LLMService
+from ml_pipeline.transforms import get_val_transforms
 
 router = APIRouter(prefix="/api")
 
@@ -362,7 +364,7 @@ def generate_clinical_report(
 
     # 1. Compile payload
     labels = ["N", "D", "G", "C", "A", "H", "M", "O"]
-    predictions_dict = {l: float(p) for l, p in zip(labels, pred_probs)}
+    predictions_dict = {label: float(p) for label, p in zip(labels, pred_probs)}
 
     patient = image.patient
     # Calculate age from birth_date

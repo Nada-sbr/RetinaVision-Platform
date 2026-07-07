@@ -179,3 +179,27 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2026-07-03 16:22:38,643 - httpx - INFO - HTTP Request: GET http://testserver/monitoring/drift-report "HTTP/1.1 200 OK"
 2026-07-03 16:22:39,768 - ml_pipeline.llm_service - ERROR - Could not connect to Ollama. Is it running? Start Ollama and verify it is running on http://localhost:11434.
 2026-07-03 16:22:39,777 - ml_pipeline.llm_service - ERROR - Ollama request timed out. Inference took too long.
+2026-07-07 13:51:00,742 - root - INFO - Centralized logging system initialized successfully.
+2026-07-07 13:51:01,087 - httpx - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-07-07 13:51:01,134 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python312\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-07-07 13:51:01,575 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-07 13:51:02,042 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-07 13:51:02,480 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-07 13:51:02,493 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 401 Unauthorized"
+2026-07-07 13:51:02,866 - httpx - INFO - HTTP Request: POST http://testserver/api/register "HTTP/1.1 201 Created"
+2026-07-07 13:51:03,209 - httpx - INFO - HTTP Request: POST http://testserver/api/login "HTTP/1.1 200 OK"
+2026-07-07 13:51:03,225 - httpx - INFO - HTTP Request: POST http://testserver/api/patients "HTTP/1.1 201 Created"
+2026-07-07 13:51:03,240 - httpx - INFO - HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-07-07 13:51:03,253 - httpx - INFO - HTTP Request: GET http://testserver/ready "HTTP/1.1 503 Service Unavailable"
+2026-07-07 13:51:03,262 - httpx - INFO - HTTP Request: GET http://testserver/ready "HTTP/1.1 200 OK"
+2026-07-07 13:51:03,283 - httpx - INFO - HTTP Request: GET http://testserver/metrics "HTTP/1.1 200 OK"
+2026-07-07 13:51:03,297 - httpx - INFO - HTTP Request: GET http://testserver/version "HTTP/1.1 200 OK"
+2026-07-07 13:51:03,312 - httpx - INFO - HTTP Request: GET http://testserver/model-info "HTTP/1.1 200 OK"
+2026-07-07 13:51:27,563 - httpx - INFO - HTTP Request: GET http://testserver/monitoring/drift-report "HTTP/1.1 200 OK"
+2026-07-07 13:51:29,106 - ml_pipeline.llm_service - ERROR - Could not connect to Ollama. Is it running? Start Ollama and verify it is running on http://localhost:11434.
+2026-07-07 13:51:29,113 - ml_pipeline.llm_service - ERROR - Ollama request timed out. Inference took too long.

@@ -1,10 +1,11 @@
+import ast
 import os
+from typing import Callable, Optional, Tuple
+
 import pandas as pd
 import torch
-from torch.utils.data import Dataset
 from PIL import Image
-import ast
-from typing import Callable, Optional, Tuple
+from torch.utils.data import Dataset
 
 
 class ODIRDataset(Dataset):

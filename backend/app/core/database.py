@@ -1,12 +1,11 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base, sessionmaker
-import os
 
 # Database URL configuration
 # For local development, default to SQLite if PostgreSQL is not specified.
 # This makes it easy to run tests and develop without PostgreSQL installed,
 # but we configure it to easily swap to PostgreSQL in production via environment variables.
 from app.core import config
+from sqlalchemy import create_engine
+from sqlalchemy.orm import declarative_base, sessionmaker
 
 DATABASE_URL = config.DATABASE_URL
 

@@ -1,7 +1,8 @@
-from pydantic import BaseModel, EmailStr, Field
-from datetime import datetime, date
-from typing import List, Optional
 import uuid
+from datetime import date, datetime
+from typing import Optional
+
+from pydantic import BaseModel, EmailStr, Field
 
 
 # ----------------------------------------------------

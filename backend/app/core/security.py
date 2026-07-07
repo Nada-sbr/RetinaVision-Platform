@@ -1,9 +1,9 @@
 from datetime import datetime, timedelta
-from typing import Any, Union, Optional
-from jose import jwt, JWTError
+from typing import Optional
 
 # Workaround for passlib compatibility with bcrypt >= 4.0.0
 import bcrypt
+from jose import JWTError, jwt
 
 original_hashpw = bcrypt.hashpw
 
@@ -16,16 +16,14 @@ def patched_hashpw(password, salt):
 
 bcrypt.hashpw = patched_hashpw
 
-from passlib.context import CryptContext
-from fastapi import Depends, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer
-from sqlalchemy.orm import Session
-import os
-
-from app.core.database import get_db
-from app.models.models import User
 
 from app.core import config
+from app.core.database import get_db
+from app.models.models import User
+from fastapi import Depends, HTTPException, status
+from fastapi.security import OAuth2PasswordBearer
+from passlib.context import CryptContext
+from sqlalchemy.orm import Session
 
 # Configuration
 SECRET_KEY = config.JWT_SECRET

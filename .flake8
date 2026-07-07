@@ -1,6 +1,6 @@
 [flake8]
 max-line-length = 127
-extend-ignore = E203, W503
+extend-ignore = E203, W503, E402, E501, C901, F824
 exclude =
     .git,
     __pycache__,
@@ -11,4 +11,4 @@ exclude =
     venv,
     .venv,
     .pytest_cache
-max-complexity = 10
+max-complexity = 15

@@ -1,8 +1,9 @@
+from typing import Tuple
+
+import cv2
 import numpy as np
 import torch
 import torch.nn as nn
-import cv2
-from typing import Tuple
 
 
 class GradCAM:

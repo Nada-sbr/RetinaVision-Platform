@@ -1,7 +1,7 @@
-import requests
 import json
 import logging
-from typing import Optional
+
+import requests
 
 logger = logging.getLogger(__name__)
 
@@ -102,7 +102,7 @@ class LLMService:
 Le patient est un individu de sexe {sex == "Female" and "féminin" or "masculin"} âgé de {age} ans, ayant subi une photographie couleur du fond d'œil.
 
 ### 2. Explication de la Prédiction
-L'analyse par intelligence artificielle révèle une forte probabilité de **{top_1_name}** avec un score de confiance estimé à **{top_1_conf}%**. 
+L'analyse par intelligence artificielle révèle une forte probabilité de **{top_1_name}** avec un score de confiance estimé à **{top_1_conf}%**.
 
 ### 3. Interprétation de l'Imagerie & XAI (Grad-CAM)
 L'explicabilité visuelle (Grad-CAM) montre que le modèle de Deep Learning a concentré ses activations principalement sur la **{attention_region}** de l'image de la rétine. Cette localisation spatiale coïncide avec les signes physiopathologiques typiques de la pathologie suspectée (ex. opacités cristalliniennes pour la cataracte ou anomalies vasculaires).

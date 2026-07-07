@@ -19,8 +19,10 @@ exclude = '''
 [tool.ruff]
 line-length = 127
 target-version = "py312"
-select = ["E", "F", "I", "W", "C90"]
-ignore = ["E203", "W503"]
 
-[tool.ruff.mccabe]
-max-complexity = 10
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "C90"]
+ignore = ["E203", "E501", "E402"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 15

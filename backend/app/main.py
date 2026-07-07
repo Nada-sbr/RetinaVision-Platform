@@ -1,12 +1,12 @@
+import os
+
+from app.api.endpoints import router
+from app.api.health import router as health_router
+from app.core.database import Base, engine
+from app.core.logging_config import setup_logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-import os
-
-from app.core.database import Base, engine
-from app.api.endpoints import router
-from app.api.health import router as health_router
-from app.core.logging_config import setup_logging
 
 # Setup logging system
 setup_logging()
