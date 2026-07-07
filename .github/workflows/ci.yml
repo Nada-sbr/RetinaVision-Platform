@@ -49,6 +49,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: Create mock checkpoints for build validation
+      run: |
+        mkdir -p checkpoints
+        echo "mock" > checkpoints/best_model.pth
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
