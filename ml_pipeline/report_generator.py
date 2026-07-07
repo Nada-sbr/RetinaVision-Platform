@@ -119,7 +119,7 @@ class ClinicalReportGenerator:
 
     def build_llm_prompt(self, payload: Dict[str, Any]) -> str:
         """
-        Constructs the system prompt and instructions for the Mistral LLM
+        Constructs the system prompt and instructions for the Gemma:2b LLM
         based on the structured JSON payload.
         """
         payload["patient_info"]

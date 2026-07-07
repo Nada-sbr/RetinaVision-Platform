@@ -315,8 +315,8 @@ function App() {
       }
       const explainedImageData = await explainRes.json();
 
-      // Step 4: Clinical Report compilation (LLM Mistral via Ollama)
-      setAnalysisStep("4. Compilation clinique et génération du rapport médical par le LLM (Mistral)...");
+      // Step 4: Clinical Report compilation (LLM Gemma:2b via Ollama)
+      setAnalysisStep("4. Compilation clinique et génération du rapport médical par le LLM (Gemma:2b)...");
       const reportRes = await fetch(`${BACKEND_URL}/api/report/${imageId}`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}` }
@@ -746,7 +746,7 @@ function App() {
                 <h3 className="pulse-text" style={{fontSize: '1.2rem', fontWeight: 600}}>Analyse Diagnostique Rétinienne en Cours...</h3>
                 <p style={{color: 'var(--accent-color)', fontWeight: 500, fontSize: '0.95rem'}}>{analysisStep}</p>
                 <div style={{maxWidth: '400px', fontSize: '0.8rem', color: 'var(--text-muted)', textAlign: 'center', marginTop: '20px'}}>
-                  Notre pipeline extrait les structures anatomiques, détecte 8 pathologies oculaires par classification multi-label et génère un overlay de chaleur de Grad-CAM avant de compiler le compte-rendu médical Mistral LLM.
+                  Notre pipeline extrait les structures anatomiques, détecte 8 pathologies oculaires par classification multi-label et génère un overlay de chaleur de Grad-CAM avant de compiler le compte-rendu médical Gemma:2b LLM.
                 </div>
               </div>
             )}
@@ -835,7 +835,7 @@ function App() {
 
                   {/* Right Column: Clinical LLM Report */}
                   <div className="card glass" style={{height: 'fit-content'}}>
-                    <div className="card-title"><FileText size={20} /> Compte-rendu Médical Mistral LLM</div>
+                    <div className="card-title"><FileText size={20} /> Compte-rendu Médical Gemma:2b LLM</div>
                     <div className="report-content">
                       {renderMarkdown(analysisResult.report.report_text)}
                     </div>

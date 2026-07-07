@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 class LLMService:
     """
     Service responsible for interacting with the local Ollama instance
-    to generate clinical reports using the Mistral LLM.
+    to generate clinical reports using the Gemma:2b LLM.
     """
 
     def __init__(self, ollama_url: str = "http://host.docker.internal:11434", model_name: str = "gemma:2b"):

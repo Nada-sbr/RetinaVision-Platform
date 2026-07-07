@@ -319,7 +319,7 @@ def explain_image(image_id: uuid.UUID, db: Session = Depends(get_db), current_us
 
 
 # ----------------------------------------------------
-# CLINICAL REPORT GENERATION ENDPOINT (MISTRAL LLM)
+# CLINICAL REPORT GENERATION ENDPOINT (GEMMA:2B LLM)
 # ----------------------------------------------------
 @router.post("/report/{image_id}", response_model=schemas.ReportOut)
 def generate_clinical_report(
@@ -379,7 +379,7 @@ def generate_clinical_report(
     # 2. Build prompt
     prompt = report_gen.build_llm_prompt(payload)
 
-    # 3. Request LLM Inference (Mistral)
+    # 3. Request LLM Inference (Gemma:2b)
     try:
         llm = LLMService(ollama_url=OLLAMA_URL)
         report_text = llm.generate_report(prompt)
